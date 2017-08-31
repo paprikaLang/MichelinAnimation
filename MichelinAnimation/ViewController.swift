@@ -6,20 +6,39 @@
 //  Copyright © 2017年 paprika. All rights reserved.
 //
 
+
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let layer = PALayer(withNumberOfItems: 6)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        view.backgroundColor = UIColor.purple
+        view.layer.addSublayer(layer)
+        layer.color = UIColor.darkGray
+        spin(sender: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
 
-
+    
+    func spin(sender: AnyObject?) {
+        layer.startAnimating()
+    }
+    
+    func halt(sender: AnyObject) {
+        layer.stopAnimating()
+    }
 }
 
